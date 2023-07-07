@@ -1,0 +1,50 @@
+Matriz de tamaño: 32 y temperatura: 1.5 ºK
+Magnetización promedio: 0.986548
+Energia media: 0.121481
+Calor Específico: 393.499 J
+
+Matriz de tamaño: 32 y temperatura: 1.72 ºK
+Magnetización promedio: 0.967882
+Energia media: 0.11755
+Calor Específico: 321.317 J
+
+Matriz de tamaño: 32 y temperatura: 1.94 ºK
+Magnetización promedio: 0.929061
+Energia media: 0.111256
+Calor Específico: 255.19 J
+
+Matriz de tamaño: 32 y temperatura: 2.16 ºK
+Magnetización promedio: 0.828455
+Energia media: 0.0994125
+Calor Específico: 182.997 J
+
+Matriz de tamaño: 32 y temperatura: 2.38 ºK
+Magnetización promedio: 0.355482
+Energia media: 0.07645
+Calor Específico: 98.2188 J
+
+Matriz de tamaño: 32 y temperatura: 2.61 ºK
+Magnetización promedio: 0.149675
+Energia media: 0.061525
+Calor Específico: 58.0069 J
+
+Matriz de tamaño: 32 y temperatura: 2.83 ºK
+Magnetización promedio: 0.102917
+Energia media: 0.0546813
+Calor Específico: 42.2578 J
+
+Matriz de tamaño: 32 y temperatura: 3.05 ºK
+Magnetización promedio: 0.0798881
+Energia media: 0.0498813
+Calor Específico: 32.6281 J
+
+Matriz de tamaño: 32 y temperatura: 3.27 ºK
+Magnetización promedio: 0.0702373
+Energia media: 0.0448812
+Calor Específico: 24.6376 J
+
+Matriz de tamaño: 32 y temperatura: 3.5 ºK
+Magnetización promedio: 0.0619924
+Energia media: 0.0400937
+Calor Específico: 18.3697 J
+

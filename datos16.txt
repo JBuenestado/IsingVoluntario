@@ -1,0 +1,50 @@
+Matriz de tamaño: 16 y temperatura: 1.5 ºK
+Magnetización promedio: 0.986542
+Energia media: 0.244363
+Calor Específico: 1592.19 J
+
+Matriz de tamaño: 16 y temperatura: 1.72 ºK
+Magnetización promedio: 0.967701
+Energia media: 0.237813
+Calor Específico: 1315.1 J
+
+Matriz de tamaño: 16 y temperatura: 1.94 ºK
+Magnetización promedio: 0.929331
+Energia media: 0.224488
+Calor Específico: 1038.96 J
+
+Matriz de tamaño: 16 y temperatura: 2.16 ºK
+Magnetización promedio: 0.831052
+Energia media: 0.2005
+Calor Específico: 744.375 J
+
+Matriz de tamaño: 16 y temperatura: 2.38 ºK
+Magnetización promedio: 0.549776
+Energia media: 0.1609
+Calor Específico: 435.063 J
+
+Matriz de tamaño: 16 y temperatura: 2.61 ºK
+Magnetización promedio: 0.296659
+Energia media: 0.130387
+Calor Específico: 260.524 J
+
+Matriz de tamaño: 16 y temperatura: 2.83 ºK
+Magnetización promedio: 0.207491
+Energia media: 0.110975
+Calor Específico: 174.053 J
+
+Matriz de tamaño: 16 y temperatura: 3.05 ºK
+Magnetización promedio: 0.162623
+Energia media: 0.099125
+Calor Específico: 128.85 J
+
+Matriz de tamaño: 16 y temperatura: 3.27 ºK
+Magnetización promedio: 0.14006
+Energia media: 0.090625
+Calor Específico: 100.453 J
+
+Matriz de tamaño: 16 y temperatura: 3.5 ºK
+Magnetización promedio: 0.123771
+Energia media: 0.084575
+Calor Específico: 81.7396 J
+

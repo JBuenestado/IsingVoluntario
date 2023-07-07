@@ -1,0 +1,54 @@
+Matriz de tamaño: 64 y temperatura: 1.5 ºK
+Magnetización promedio: 0.986712
+Energia media: 0.061
+Calor Específico: 9.91274 J
+
+Matriz de tamaño: 64 y temperatura: 1.72 ºK
+Magnetización promedio: 0.968026
+Energia media: 0.0590313
+Calor Específico: 8.09582 J
+
+Matriz de tamaño: 64 y temperatura: 1.94 ºK
+Magnetización promedio: 0.928828
+Energia media: 0.0563125
+Calor Específico: 6.53181 J
+
+Matriz de tamaño: 64 y temperatura: 2.16 ºK
+Magnetización promedio: 0.825361
+Energia media: 0.0504687
+Calor Específico: 4.71213 J
+
+Matriz de tamaño: 64 y temperatura: 2.38 ºK
+Magnetización promedio: 0.195173
+Energia media: 0.0391562
+Calor Específico: 2.57425 J
+
+Matriz de tamaño: 64 y temperatura: 2.61 ºK
+Magnetización promedio: 0.0759878
+Energia media: 0.0329687
+Calor Específico: 1.66414 J
+
+Matriz de tamaño: 64 y temperatura: 2.83 ºK
+Magnetización promedio: 0.052394
+Energia media: 0.029125
+Calor Específico: 1.19776 J
+
+Matriz de tamaño: 64 y temperatura: 3.05 ºK
+Magnetización promedio: 0.0422539
+Energia media: 0.0255312
+Calor Específico: 0.854023 J
+
+Matriz de tamaño: 64 y temperatura: 3.27 ºK
+Magnetización promedio: 0.0359385
+Energia media: 0.0225937
+Calor Específico: 0.623813 J
+
+Matriz de tamaño: 64 y temperatura: 3.5 ºK
+Magnetización promedio: 0.0327627
+Energia media: 0.022125
+Calor Específico: 0.558887 J
+
+Matriz de tamaño: 64 y temperatura: 3.5 ºK
+Magnetización promedio: 0.0327627
+
+
