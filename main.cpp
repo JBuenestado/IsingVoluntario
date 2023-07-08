@@ -17,9 +17,9 @@ const bool mostrar = false;
 const bool randomStart = false;
 const bool threadpertemperature = true; // crear un thread en paralelo para ejecutar para cada temperatura. si quieres ejecutarlas
 // secuencialmente; false y numeroTemperaturas != 1
-const int PMC = 10000; // pasos montecarlo
+const int PMC = 1000000; // pasos montecarlo
 const int N = 16;       // tamaño matrix
-const int numeroTemperaturas = 7;
+const int numeroTemperaturas = 10;
 double temp[numeroTemperaturas];
 double tk = 1.5;  // temperatura del sistema, para utilizar este dato, numeroTemperaturas = 1;
 int total = 1; // cuantas veces quieres ejecutarlo, multithread, usar con una unica temperatura
