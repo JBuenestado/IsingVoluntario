@@ -1,3 +1,4 @@
+//main_calc_multithread4_fixed_2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            .cpp                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
 #include <iostream>
 #include <thread>
 #include "pthread.h"
@@ -14,17 +15,53 @@ using namespace std;
 const int MAX = 100000; // para el random
 const bool mostrar = false;
 const bool randomStart = false;
-const bool threadpertemperature = false; // crear un thread en paralelo para ejecutar para cada temperatura. si quieres ejecutarlas
+const bool threadpertemperature = true; // crear un thread en paralelo para ejecutar para cada temperatura. si quieres ejecutarlas
 // secuencialmente; false y numeroTemperaturas != 1
-const int PMC = 100000; // pasos montecarlo
-const int N = 128;       // tamaño matrix
-const int numeroTemperaturas = 1;
+const int PMC = 10000; // pasos montecarlo
+const int N = 16;       // tamaño matrix
+const int numeroTemperaturas = 7;
 double temp[numeroTemperaturas];
 double tk = 1.5;  // temperatura del sistema, para utilizar este dato, numeroTemperaturas = 1;
 int total = 1; // cuantas veces quieres ejecutarlo, multithread, usar con una unica temperatura
 ofstream correlacion, datosout, print, printT[numeroTemperaturas];
 
-void calcular(int runs, int &changes, int thread_number, double tk_value) {    
+// returns a 3d array of double with dimensions N x N x N and initialize it to 0
+double ***create3dArray(int N) {
+    double ***array = new double**[N];
+    for (int i = 0; i < N; ++i) {
+        array[i] = new double*[N];
+        for (int j = 0; j < N; ++j) {
+            array[i][j] = new double[N];
+        }
+    }
+    // fill in the array with 0s
+    for (int i = 0; i < N; ++i) {
+        for (int j = 0; j < N; ++j) {
+            for (int k = 0; k < N; ++k) {
+                array[i][j][k] = 0;
+            }
+        }
+    }
+    return array;
+}
+
+// returns a 2d array of double with dimensions N x N  and initialize it to 0
+double **create2dArray(int N) {
+    double **array = new double*[N];
+    for (int i = 0; i < N; ++i) {
+        array[i] = new double[N];
+    }
+    // fill in the array with 0s
+    for (int i = 0; i < N; ++i) {
+        for (int j = 0; j < N; ++j) {
+            array[i][j] = 0;
+        }
+    }
+    return array;
+}
+
+
+void calcular(int runs, int &changes, int thread_number, double tk_value) {
     unsigned int seed = time(NULL) * thread_number;
     cout << "thread: " << thread_number << " . tk: " << tk_value;
     cout << "tk: " << tk << endl;
@@ -34,8 +71,10 @@ void calcular(int runs, int &changes, int thread_number, double tk_value) {
     int i, j, k, n, l;
     int x0, y0, x1, x2, y1, y2;
     int check1, check2, test;
-    double autoc[N][N][N];
-    double red[N][N], energia, p, xhi, copia[N][N], autocorrelacion[N];
+    double ***autoc = create3dArray(N);
+    double **red = create2dArray(N);
+    double **copia = create2dArray(N);
+    double energia, p, xhi, autocorrelacion[N];
     double calculoMagnetizacion, calculoEnergia;
     test = 0;
 
@@ -234,7 +273,7 @@ int create_threads(int total_threads) {
     correlacion.open("autocorrelation.txt");
     datosout.open("datos.txt");
 
-    if(threadpertemperature){ 
+    if(threadpertemperature){
         total_threads = numeroTemperaturas;
         for (int i = 0; i < total_threads; ++i) {
             return_values[i] = 0;
@@ -242,7 +281,7 @@ int create_threads(int total_threads) {
         std::chrono::steady_clock::time_point begin_chrono = std::chrono::steady_clock::now();
         cout << "-------------------Start of Iteration------------------" << endl;
         std::vector<std::thread> threads;
-        
+
         for (int i = 0; i < total_threads; ++i){
             if (numeroTemperaturas != 1) {
                 tk = temp[i];
@@ -251,23 +290,23 @@ int create_threads(int total_threads) {
 
             threads.emplace_back(thread(calcular, thread_step, ref(return_values[i]), i, tk));
         }
-            for (auto &thread: threads) {
-                thread.join();
-            }
+        for (auto &thread: threads) {
+            thread.join();
+        }
 
-            int result = 0;
-            for (int i = 0; i < total_threads; ++i) {
-                result += return_values[i];
-            }
-        
+        int result = 0;
+        for (int i = 0; i < total_threads; ++i) {
+            result += return_values[i];
+        }
+
         for (int i = 0; i < total_threads; ++i){
             printT[i].close();
-        } 
-        
+        }
+
         chrono::steady_clock::time_point end_chrono = chrono::steady_clock::now();
-            cout << "Time difference All executions (sec) = "
-                << (chrono::duration_cast<chrono::microseconds>(end_chrono - begin_chrono).count()) / 1000000.0 << endl;
-            cout << "-----------------------------------------------------" << endl;
+        cout << "Time difference All executions (sec) = "
+             << (chrono::duration_cast<chrono::microseconds>(end_chrono - begin_chrono).count()) / 1000000.0 << endl;
+        cout << "-----------------------------------------------------" << endl;
 
     } else {
 
@@ -309,14 +348,14 @@ int create_threads(int total_threads) {
             cout << "-----------------------------------------------------" << endl;
             chrono::steady_clock::time_point end_chrono = chrono::steady_clock::now();
             cout << "Time difference (sec) = "
-                << (chrono::duration_cast<chrono::microseconds>(end_chrono - begin_chrono).count()) / 1000000.0 << endl;
+                 << (chrono::duration_cast<chrono::microseconds>(end_chrono - begin_chrono).count()) / 1000000.0 << endl;
             cout << "-----------------------------------------------------" << endl;
             print.close();
         }
         chrono::steady_clock::time_point total_chrono = chrono::steady_clock::now();
-         cout << "Time difference All (sec) = "
-                << (chrono::duration_cast<chrono::microseconds>(total_chrono - chronototal).count()) / 1000000.0 << endl;
-            cout << "-----------------------------------------------------" << endl;
+        cout << "Time difference All (sec) = "
+             << (chrono::duration_cast<chrono::microseconds>(total_chrono - chronototal).count()) / 1000000.0 << endl;
+        cout << "-----------------------------------------------------" << endl;
 
     }
     datosout.close();
@@ -353,3 +392,5 @@ int main(int argc, char *argv[]) {
 
     return 0;
 }
+
+
